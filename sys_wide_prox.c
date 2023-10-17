@@ -4,7 +4,7 @@
 void change_proxy_syswide(const char* proxy)
 {
     char command1[1024], command2[1024], command3[1024], command4[1024], command5[1024];
-    sprintf(command1, "echo 'Acquire::http::proxy \"%s\";' > /etc/apt/apt.conf", proxy);
+    sprintf(command1, "echo 'Acquire::http::proxy \"http://%s/\";' > /etc/apt/apt.conf", proxy);
     sprintf(command5, "echo '%s' > /home/zerone/launch_chrome.zttf", proxy); //fallback for chrome if browser does not picks up the proxy
     sprintf(command2, "export http_proxy=http://'%s'", proxy);
     sprintf(command3, "export https_proxy=http://'%s'", proxy);
@@ -32,4 +32,3 @@ int main()
         disp_loop_main();
     return 0;
 }
-
